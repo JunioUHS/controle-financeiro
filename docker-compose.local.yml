@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: controle_financeiro_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: ControleFinanceiro.Api/Dockerfile
+    container_name: backend
+    environment:
+      - ConnectionStrings__DefaultConnection=server=db;port=3306;database=controle_financeiro_db;user=root;password=123456;
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5097:5097"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
+volumes:
+  mysql_data:
