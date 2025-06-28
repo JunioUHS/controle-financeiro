@@ -155,12 +155,23 @@ VITE_API_URL=http://localhost:5097/api
 
 ### 🔐 Autenticação
 
-<div align="center">
+<!-- <div align="center">
   <img src="./assets/images/login.png" alt="Tela de Login" width="45%">
   <img src="./assets/images/register.png" alt="Tela de Cadastro" width="45%">
-</div>
+</div> -->
 
-_Telas de login e cadastro com validação em tempo real_
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./assets/images/login.png" alt="Tela de Login" width="100%">
+      <p align="center"><em>Login</em></p>
+    </td>
+    <td width="50%">
+      <img src="./assets/images/register.png" alt="Tela de Cadastro" width="100%">
+      <p align="center"><em>Novo Usuário</em></p>
+    </td>
+  </tr>
+</table>
 
 ### 📊 Dashboard Principal
 
